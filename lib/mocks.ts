@@ -9,23 +9,23 @@ export type Product = {
 
 export const mockProducts: Product[] = [
   {
-    id: "1",
-    name: "Wireless Headphones",
+    id: '1',
+    name: 'Wireless Headphones',
     description:
-      "Premium noise-cancelling wireless headphones with long battery life.",
+      'Premium noise-cancelling wireless headphones with long battery life.',
     price: 199.99,
-    // image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
+    // image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e',
     image: '/public/headphones.jpg',
-    category: "Electronics",
+    category: 'Electronics',
   },
   {
-    id: "2",
-    name: "Smart Watch",
+    id: '2',
+    name: 'Smart Watch',
     description:
-      "Fitness tracker with heart rate monitoring and sleep analysis.",
+      'Fitness tracker with heart rate monitoring and sleep analysis.',
     price: 149.99,
-    // image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
-    image: '/public/smartwatch.jpg'
-    category: "Electronics",
+    // image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30',
+    image: '/public/smartwatch.jpg',
+    category: 'Electronics',
   },
-];
+]
