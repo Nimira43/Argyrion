@@ -1,1 +1,7 @@
-export function ProductCard(){}
+export function ProductCard({
+  product
+}: {
+  product: Product
+}) {
+  
+}
