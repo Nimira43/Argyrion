@@ -11,10 +11,10 @@ export function ProductCard({
       <div className='relative aspect-video'>
         <Image
           src={product.image} 
-          alt='Product Image'
-          className='object-cover'
-          role='presentation'
+          alt={`Image of ${product.name}`}
+          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
           fill
+          className='object-cover'
         />
       </div>
       
