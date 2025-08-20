@@ -1,15 +1,10 @@
-import { Button } from '@/components/ui/button'
-
 export default function HomePage() {
   return (
-    <>
-      <div className='bg-dark p-8'>
-        <h1 className='logo-text text-light text-4xl'>Argyrion</h1>
+    <main className='container mx-auto p-4'>
+      <h1 className='logo-text text-3xl mb-6'>Argyrion</h1>
+      <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
+        <p>Products placed here.</p>
       </div>
-      <div className='p-8 mt-8'>
-        <Button variant='outline'>Login</Button>
-        <Button>Logout</Button>
-      </div>
-    </>
+    </main>
   )
 }
