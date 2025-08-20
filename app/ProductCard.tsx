@@ -11,9 +11,9 @@ export function ProductCard({
       <Image
         src={product.image} 
         alt={product.image}
-        width={100}
-        height={100}
-        className='w-full h-48 object-cover object-center mb-4' 
+        width={400}
+        height={267}
+        className='object-cover'
       />
       <h2 className='text-lg font-medium'>{product.name}</h2>
       <p className='text-grey-dark'>£{product.price.toFixed(2)}</p>
