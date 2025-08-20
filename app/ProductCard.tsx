@@ -8,13 +8,15 @@ export function ProductCard({
 }) {
   return (
     <div className='border border-grey-light rounded-md p-4'>
-      <Image
-        src={product.image} 
-        alt={product.image}
-        width={400}
-        height={267}
-        className='object-cover'
-      />
+      <div className='relative aspect-video'>
+        <Image
+          src={product.image} 
+          alt={product.image}
+          className='object-cover'
+          fill
+        />
+      </div>
+      
       <h2 className='text-lg font-medium'>{product.name}</h2>
       <p className='text-grey-dark'>£{product.price.toFixed(2)}</p>
       <p className='text-grey-dark'>{product.description}</p>
