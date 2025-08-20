@@ -15,7 +15,7 @@ export const mockProducts: Product[] = [
       'Premium noise-cancelling wireless headphones with long battery life.',
     price: 199.99,
     // image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e',
-    image: '/public/headphones.jpg',
+    image: '/headphones.jpg',
     category: 'Electronics',
   },
   {
@@ -25,7 +25,7 @@ export const mockProducts: Product[] = [
       'Fitness tracker with heart rate monitoring and sleep analysis.',
     price: 149.99,
     // image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30',
-    image: '/public/smartwatch.jpg',
+    image: '/smartwatch.jpg',
     category: 'Electronics',
   },
 ]

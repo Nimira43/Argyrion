@@ -11,10 +11,12 @@ export function ProductCard({
       <Image
         src={product.image} 
         alt={product.image}
+        width={100}
+        height={100}
         className='w-full h-48 object-cover object-center mb-4' 
       />
       <h2 className='text-lg font-medium'>{product.name}</h2>
-      <p className='text-grey-dark'>£{product.price}</p>
+      <p className='text-grey-dark'>£{product.price.toFixed(2)}</p>
       <p className='text-grey-dark'>{product.description}</p>
     </div>
   )
