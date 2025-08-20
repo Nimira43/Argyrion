@@ -11,8 +11,9 @@ export function ProductCard({
       <div className='relative aspect-video'>
         <Image
           src={product.image} 
-          alt={product.image}
+          alt='Product Image'
           className='object-cover'
+          role='presentation'
           fill
         />
       </div>
