@@ -17,7 +17,6 @@ export function ProductCard({
           className='object-cover'
         />
       </div>
-      
       <h2 className='text-lg font-medium'>{product.name}</h2>
       <p className='text-grey-dark'>£{product.price.toFixed(2)}</p>
       <p className='text-grey-dark'>{product.description}</p>
