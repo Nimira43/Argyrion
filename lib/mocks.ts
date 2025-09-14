@@ -32,7 +32,7 @@ export const mockProducts: Product[] = [
     description:
       'Cutting edge gaming console.',
     price: 449.99,
-    image: '/.jpg',
+    image: '/playstation5.jpg',
     category: 'Consoles',
   },
   {
