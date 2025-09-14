@@ -26,4 +26,31 @@ export const mockProducts: Product[] = [
     image: '/smartwatch.jpg',
     category: 'Electronics',
   },
+  {
+    id: '3',
+    name: 'Smart Watch',
+    description:
+      'Fitness tracker with heart rate monitoring and sleep analysis.',
+    price: 149.99,
+    image: '/smartwatch.jpg',
+    category: 'Fashiom',
+  },
+  {
+    id: '2',
+    name: 'Smart Watch',
+    description:
+      'Fitness tracker with heart rate monitoring and sleep analysis.',
+    price: 149.99,
+    image: '/smartwatch.jpg',
+    category: 'Electronics',
+  },
+  {
+    id: '2',
+    name: 'Smart Watch',
+    description:
+      'Fitness tracker with heart rate monitoring and sleep analysis.',
+    price: 149.99,
+    image: '/smartwatch.jpg',
+    category: 'Electronics',
+  },
 ]
