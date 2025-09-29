@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -79,4 +81,12 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.logo-text {
+  font-family: 'Aguafina Script', cursive;
+}
+
+.hover-transition {
+  transition: all 0.5s ease-in-out;
 }
