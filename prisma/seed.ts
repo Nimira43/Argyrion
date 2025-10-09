@@ -6,7 +6,12 @@ async function main() {
   await prisma.product.deleteMany()
   await prisma.category.deleteMany()
 
-  
+  const smartwatches = await prisma.category.create({
+    data: {
+      name: "Smartwatches",
+      slug: "smartwatches",  
+    }, 
+  })
 }
 
 main()

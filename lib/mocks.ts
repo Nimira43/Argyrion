@@ -10,21 +10,21 @@ export type Product = {
 export const mockProducts: Product[] = [
   {
     id: '1',
-    name: 'Wireless Headphones',
+    name: 'Sony Wireless Headphones',
     description:
       'Premium noise-cancelling wireless headphones with long battery life.',
     price: 199.99,
     image: '/headphones.jpg',
-    category: 'Electronics',
+    category: 'Headphones',
   },
   {
     id: '2',
-    name: 'Smart Watch',
+    name: 'Samsung Smartwatch',
     description:
       'Fitness tracker with heart rate monitoring and sleep analysis.',
     price: 149.99,
     image: '/smartwatch.jpg',
-    category: 'Electronics',
+    category: 'Smartwatches',
   },
   {
     id: '3',
@@ -42,15 +42,15 @@ export const mockProducts: Product[] = [
       'Latest flagship iPhone.',
     price: 1049.99,
     image: '/iphone.jpg',
-    category: 'Phones',
+    category: 'Smartphones',
   },
   {
     id: '5',
-    name: 'Laptop',
+    name: 'HP Laptop',
     description:
       'High powered gaming laptop.',
     price: 549.99,
     image: '/laptop.jpg',
-    category: 'Electronics',
+    category: 'Laptops',
   },
 ]
