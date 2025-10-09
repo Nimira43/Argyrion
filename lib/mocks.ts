@@ -53,4 +53,40 @@ export const mockProducts: Product[] = [
     image: '/laptop.jpg',
     category: 'Laptops',
   },
+  {
+    id: '6',
+    name: 'Dell Desktop',
+    description:
+      'High powered gaming desktop PC.',
+    price: 949.99,
+    image: '/desktop.jpg',
+    category: 'Desktops',
+  },
+  {
+    id: '7',
+    name: 'Amazon Tablet',
+    description:
+      'Multi-purpose mobile tablet.',
+    price: 119.99,
+    image: '/tablet.jpg',
+    category: 'Tablets',
+  },
+  {
+    id: '8',
+    name: 'Microsoft Mouse',
+    description:
+      'Fantastic wireless mouse.',
+    price: 29.99,
+    image: '/mouse.jpg',
+    category: 'Accessories',
+  },
+  {
+    id: '9',
+    name: 'Panasonic Smartbulbs',
+    description:
+      'Sophisticated IOT light bulbs',
+    price: 79.99,
+    image: '/iot-lightbulbs.jpg',
+    category: 'IoT',
+  },
 ]
