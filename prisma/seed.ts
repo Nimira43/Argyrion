@@ -161,6 +161,12 @@ async function main() {
       slug: 'panasonic-smartbulbs'
     },
   ]
+
+  for (const product of products) {
+    await prisma.product.create({
+      data: product,
+    })
+  }
 }
 
 main()
