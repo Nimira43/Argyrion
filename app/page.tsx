@@ -1,7 +1,10 @@
 import { mockProducts } from '@/lib/mocks'
 import { ProductCard } from './ProductCard'
+import { prisma } from '@/lib/prisma'
 
 export default function HomePage() {
+  const products = prisma.product.findMany()
+
   return (
     <main className='container mx-auto p-4'>
       <h1 className='logo-text text-3xl mb-6 text-main'>Argyrion</h1>
