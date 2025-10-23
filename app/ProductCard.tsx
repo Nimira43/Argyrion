@@ -10,6 +10,7 @@ export function ProductCard({
   return (
     <div className='border border-grey-light rounded-md p-4'>
       <div className='relative aspect-video'>
+      {product.image && (
         <Image
           src={product.image} 
           alt={`Image of ${product.name}`}
@@ -17,6 +18,8 @@ export function ProductCard({
           fill
           className='object-cover'
         />
+      )}
+        
       </div>
       <h2 className='text-lg font-medium'>{product.name}</h2>
       <p className='text-grey-dark'>{formatPrice(product.price)}</p>
