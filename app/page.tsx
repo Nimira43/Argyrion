@@ -1,4 +1,3 @@
-import { mockProducts } from '@/lib/mocks'
 import { ProductCard } from './ProductCard'
 import { prisma } from '@/lib/prisma'
 

@@ -1,5 +1,5 @@
-import { Product } from '@/lib/mocks'
 import { formatPrice } from '@/lib/utils'
+import { Product } from '@prisma/client'
 import Image from 'next/image'
 
 export function ProductCard({
