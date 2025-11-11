@@ -3,7 +3,6 @@ import { prisma } from '@/lib/prisma'
 
 export default async function HomePage() {
   const products = await prisma.product.findMany()
-  console.log(products)
 
   return (
     <main className='container mx-auto p-4'>
