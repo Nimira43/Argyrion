@@ -1,4 +1,4 @@
-import { Card, CardHeader } from '@/components/ui/card'
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { formatPrice } from '@/lib/utils'
 import { Product } from '@prisma/client'
 import Image from 'next/image'
@@ -22,7 +22,8 @@ export function ProductCard({
         )}
       </div>
       <CardHeader>
-        
+        <CardTitle>{product.name}</CardTitle>
+        <CardDescription>{product.description}</CardDescription>
       </CardHeader>
 
       <h2 className='text-lg font-medium'>{product.name}</h2>
