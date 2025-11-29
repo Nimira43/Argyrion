@@ -48,7 +48,7 @@ function Calendar({
         ),
         month: cn('flex w-full flex-col gap-4', defaultClassNames.month),
         nav: cn(
-          'absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1',
+          'absolute inset-x-0 top-0 just-between w-full gap-1',
           defaultClassNames.nav
         ),
         button_previous: cn(
@@ -62,11 +62,11 @@ function Calendar({
           defaultClassNames.button_next
         ),
         month_caption: cn(
-          'flex h-[--cell-size] w-full items-center justify-center px-[--cell-size]',
+          'centre h-[--cell-size] w-full px-[--cell-size]',
           defaultClassNames.month_caption
         ),
         dropdowns: cn(
-          'flex h-[--cell-size] w-full items-center justify-center gap-1.5 text-sm font-medium',
+          'centre h-[--cell-size] w-full gap-1.5 text-sm font-medium',
           defaultClassNames.dropdowns
         ),
         dropdown_root: cn(
@@ -81,7 +81,7 @@ function Calendar({
           'select-none font-medium',
           captionLayout === 'label'
             ? 'text-sm'
-            : '[&>svg]:text-muted-foreground flex h-8 items-center gap-1 rounded-md pl-2 pr-1 text-sm [&>svg]:size-3.5',
+            : '[&>svg]:text-muted-foreground centre-items h-8 gap-1 rounded-md pl-2 pr-1 text-sm [&>svg]:size-3.5',
           defaultClassNames.caption_label
         ),
         table: 'w-full border-collapse',
