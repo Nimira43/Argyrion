@@ -87,6 +87,19 @@
   font-family: 'Aguafina Script', cursive;
 }
 
+
 .hover-transition {
   transition: all 0.5s ease-in-out;
+}
+
+.centre {
+  @apply flex items-center justify-center;
+}
+
+.just-between {
+  @apply flex items-center justify-between;
+}
+
+.centre-items {
+  @apply flex items-center;
 }
