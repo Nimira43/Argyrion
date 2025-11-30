@@ -19,8 +19,9 @@ async function Products({ page }: { page: number }) {
   ]) 
 
   const totalPages = Math.ceil(total / pageSize)
-
   await new Promise((resolve) => setTimeout(resolve, 1000))
+
+  return { products, totalPages}
 }
 
 export default async function HomePage(
