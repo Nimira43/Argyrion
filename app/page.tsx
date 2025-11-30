@@ -10,7 +10,7 @@ async function Products({ page }: { page: number }) {
   const pageSize = 3
   const skip = (page - 1) * pageSize
 
-  const [products, total]  = await Promise.all([
+  const [products]  = await Promise.all([
     prisma.product.findMany({
       skip,
       take: pageSize,
@@ -18,7 +18,6 @@ async function Products({ page }: { page: number }) {
     prisma.product.count()
   ]) 
 
-  const totalPages = Math.ceil(total / pageSize)
   await new Promise((resolve) => setTimeout(resolve, 1000))
 
   return (
@@ -41,6 +40,8 @@ export default async function HomePage(
 ) {
   const searchParams = await props.searchParams
   const page = Number(searchParams.page) || 1
+  const total = await prisma.product.count()
+  const totalPages = Math.ceil(total / 3)
   
   return (
     <main className='container mx-auto p-4'>
