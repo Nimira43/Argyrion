@@ -6,6 +6,10 @@ type SearchParams = Promise<{
   [key: string]: string | string[] | undefined
 }>
 
+async function Products({ page }: { page: number }) {
+  
+}
+
 export default async function HomePage(
   props : { searchParams: SearchParams}
 ) {
