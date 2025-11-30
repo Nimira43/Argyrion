@@ -7,7 +7,7 @@ export default function Loading() {
     // </div>
     <main className='container mx-auto p-4'>
       <h1 className='text-3xl mb-6 text-medium'>Home</h1>
-      <p>Showing some products</p>
+      <p>Loading...</p>
       <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
         {Array.from({length: 9}).map((_, i) => (
           <ProductCardSkeleton key={i} />

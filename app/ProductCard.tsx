@@ -9,7 +9,7 @@ export function ProductCard({
   product: Product
 }) {
   return (
-    <Card className='pt-0 overflow-hidden'>
+    <Card className='mt-6 pt-0 overflow-hidden'>
       <div className='relative aspect-video'>
         {product.image && (
           <Image

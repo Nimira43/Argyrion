@@ -1,4 +1,4 @@
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination'
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination'
 import { ProductCard } from './ProductCard'
 import { prisma } from '@/lib/prisma'
 
@@ -24,8 +24,7 @@ export default async function HomePage(
 
   const totalPages = Math.ceil(total / pageSize)
 
-
-  await new Promise((resolve) => setTimeout(resolve, 3000))
+  await new Promise((resolve) => setTimeout(resolve, 1000))
 
   return (
     <main className='container mx-auto p-4'>
@@ -33,7 +32,7 @@ export default async function HomePage(
       <p>Showing {products.length} products</p>
       <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
         {products.map((product) => (
-          <ProductCard 
+          <ProductCard  
             key={product.id}
             product={product}
           />
@@ -46,10 +45,17 @@ export default async function HomePage(
               href= {`?page=${page - 1}`} 
             />
           </PaginationItem>
-          
-          <PaginationItem>
-            <PaginationLink href='#'>1</PaginationLink>
-          </PaginationItem>
+
+          {Array.from({ length: totalPages }, (_, index) => (
+            <PaginationItem key={index}>
+              <PaginationLink
+                href={`?page=${index + 1}`}
+                className={page === index + 1 ? 'active' : ''}
+              >
+                {index + 1}
+              </PaginationLink>
+            </PaginationItem>  
+          ))}
           
           <PaginationItem>
             <PaginationNext
