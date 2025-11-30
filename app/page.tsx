@@ -7,14 +7,6 @@ type SearchParams = Promise<{
 }>
 
 async function Products({ page }: { page: number }) {
-  
-}
-
-export default async function HomePage(
-  props : { searchParams: SearchParams}
-) {
-  const searchParams = await props.searchParams
-  const page = Number(searchParams.page) || 1
   const pageSize = 3
   const skip = (page - 1) * pageSize
 
@@ -29,7 +21,14 @@ export default async function HomePage(
   const totalPages = Math.ceil(total / pageSize)
 
   await new Promise((resolve) => setTimeout(resolve, 1000))
+}
 
+export default async function HomePage(
+  props : { searchParams: SearchParams}
+) {
+  const searchParams = await props.searchParams
+  const page = Number(searchParams.page) || 1
+  
   return (
     <main className='container mx-auto p-4'>
       <h1 className='text-3xl mb-6 text-medium'>Home</h1>
