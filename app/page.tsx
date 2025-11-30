@@ -6,18 +6,14 @@ type SearchParams = Promise<{
   [key: string]: string | string[] | undefined
 }>
 
+const pageSize = 3
+
 async function Products({ page }: { page: number }) {
-  const pageSize = 3
   const skip = (page - 1) * pageSize
-
-  const [products]  = await Promise.all([
-    prisma.product.findMany({
-      skip,
-      take: pageSize,
-    }),
-    prisma.product.count()
-  ]) 
-
+  const products = await prisma.product.findMany({
+    skip,
+    take: pageSize,
+  })
   await new Promise((resolve) => setTimeout(resolve, 1000))
 
   return (
@@ -35,13 +31,11 @@ async function Products({ page }: { page: number }) {
   )
 }
 
-export default async function HomePage(
-  props : { searchParams: SearchParams}
-) {
+export default async function HomePage(props : { searchParams: SearchParams}) {
   const searchParams = await props.searchParams
   const page = Number(searchParams.page) || 1
   const total = await prisma.product.count()
-  const totalPages = Math.ceil(total / 3)
+  const totalPages = Math.ceil(total / pageSize)
   
   return (
     <main className='container mx-auto p-4'>
