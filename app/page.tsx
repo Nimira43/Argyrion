@@ -1,4 +1,4 @@
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationPrevious } from '@/components/ui/pagination'
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination'
 import { ProductCard } from './ProductCard'
 import { prisma } from '@/lib/prisma'
 
@@ -41,7 +41,12 @@ export default async function HomePage(
           <PaginationItem>
             <PaginationLink href='#'>1</PaginationLink>
           </PaginationItem>
-          
+          <PaginationItem>
+            <PaginationEllipsis />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationNext href='#' />
+          </PaginationItem>
         </PaginationContent>
       </Pagination>
     </main>
