@@ -12,7 +12,7 @@ export function ProductCardSkeleton() {
         <Skeleton className='h-4 w-full mt-2' />
         <Skeleton className='h-4 w-2/3 mt-1' />
       </CardHeader>
-      <CardFooter>
+      <CardFooter className='just-between'>
         <Skeleton className='h-6 w-24' />
         <Skeleton className='h-6 w-20' />
       </CardFooter>
