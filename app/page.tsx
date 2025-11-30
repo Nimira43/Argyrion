@@ -12,7 +12,11 @@ export default async function HomePage(
   const page = Number(searchParams.page) || 1
   const pageSize = 3
   const skip = (page - 1) * pageSize
-  const products = await prisma.product.findMany()
+
+  const products = await prisma.product.findMany({
+    skip,
+    take: pageSize,
+  })
 
   await new Promise((resolve) => setTimeout(resolve, 3000))
 
