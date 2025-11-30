@@ -8,6 +8,7 @@ type SearchParams = Promise<{
 export default async function HomePage(
   props : { searchParams: SearchParams}
 ) {
+  const searchParams = await props.searchParams
   const products = await prisma.product.findMany()
 
   await new Promise((resolve) => setTimeout(resolve, 3000))
