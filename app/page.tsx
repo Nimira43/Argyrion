@@ -1,6 +1,12 @@
 import { ProductCard } from './ProductCard'
 import { prisma } from '@/lib/prisma'
 
+type SearchParams = Promise<{
+  [
+    key: string
+  ]: string | string[] | undefined
+}>
+
 export default async function HomePage() {
   const products = await prisma.product.findMany()
 
