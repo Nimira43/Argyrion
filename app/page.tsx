@@ -14,13 +14,16 @@ export default async function HomePage(
   const pageSize = 3
   const skip = (page - 1) * pageSize
 
-  const products = await Promise.all([
+  const [products, total]  = await Promise.all([
     prisma.product.findMany({
       skip,
       take: pageSize,
     }),
     prisma.product.count()
   ]) 
+
+  const totalPages = Math.ceil(total / pageSize)
+
 
   await new Promise((resolve) => setTimeout(resolve, 3000))
 
