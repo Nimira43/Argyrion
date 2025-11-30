@@ -2,12 +2,12 @@ import { ProductCard } from './ProductCard'
 import { prisma } from '@/lib/prisma'
 
 type SearchParams = Promise<{
-  [
-    key: string
-  ]: string | string[] | undefined
+  [key: string]: string | string[] | undefined
 }>
 
-export default async function HomePage() {
+export default async function HomePage(
+  props : { searchParams: SearchParams}
+) {
   const products = await prisma.product.findMany()
 
   await new Promise((resolve) => setTimeout(resolve, 3000))
