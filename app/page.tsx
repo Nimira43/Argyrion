@@ -1,6 +1,7 @@
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination'
 import { ProductCard } from './ProductCard'
 import { prisma } from '@/lib/prisma'
+import { Suspense } from 'react'
 
 type SearchParams = Promise<{
   [key: string]: string | string[] | undefined
@@ -40,6 +41,10 @@ export default async function HomePage(props : { searchParams: SearchParams}) {
   return (
     <main className='container mx-auto p-4'>
       <h1 className='text-3xl mb-6 text-medium'>Home</h1>
+
+      <Suspense>
+        <Products page={page} />
+      </Suspense>
       
       <Pagination className='mt-6'>
         <PaginationContent>
