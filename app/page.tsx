@@ -14,10 +14,13 @@ export default async function HomePage(
   const pageSize = 3
   const skip = (page - 1) * pageSize
 
-  const products = await prisma.product.findMany({
-    skip,
-    take: pageSize,
-  })
+  const products = await Promise.all([
+    prisma.product.findMany({
+      skip,
+      take: pageSize,
+    }),
+    prisma.product.count()
+  ]) 
 
   await new Promise((resolve) => setTimeout(resolve, 3000))
 
@@ -33,7 +36,7 @@ export default async function HomePage(
           />
         ))}
       </div>
-      <Pagination>
+      <Pagination className='mt-6'>
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious href='#' />
