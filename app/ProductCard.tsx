@@ -1,7 +1,4 @@
-'use client'
-
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { getProductBySlug } from '@/lib/actions'
 import { formatPrice } from '@/lib/utils'
 import { Product } from '@prisma/client'
 import Image from 'next/image'
@@ -12,10 +9,7 @@ export function ProductCard({
   product: Product
 }) {
   return (
-    <Card
-      className='mt-6 pt-0 overflow-hidden'
-      onClick={async () => await getProductBySlug(product.slug)}
-    >
+    <Card className='mt-6 pt-0 overflow-hidden'>
       <div className='relative aspect-video'>
         {product.image && (
           <Image
