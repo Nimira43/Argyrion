@@ -4,9 +4,10 @@ import { formatPrice } from '@/lib/utils'
 export async function ProductPage({
   params
 }: {
-  params: { slug: string }
-}) {
-  const product = await getProductBySlug(params.slug)
+  params: Promise<{ slug: string }>
+  }) {
+  const { slug } = await params
+  const product = await getProductBySlug(slug)
 
   if (!product) {
     return (
