@@ -7,9 +7,7 @@ export async function getProductBySlug(slug: string) {
     where: { slug }
   })
 
-  if (!product) {
-    throw new Error('Product not found.')
-  }
+  if (!product) return null
 
   return product
 }
