@@ -3,6 +3,7 @@ import { ProductCard } from './ProductCard'
 import { prisma } from '@/lib/prisma'
 import { Suspense } from 'react'
 import ProductsSkeleton from './ProductsSkeleton'
+import { getProductBySlug } from '@/lib/actions'
 
 type SearchParams = Promise<{
   [key: string]: string | string[] | undefined
@@ -36,6 +37,9 @@ async function Products({ page }: { page: number }) {
 export default async function HomePage(props : { searchParams: SearchParams}) {
   const searchParams = await props.searchParams
   const page = Number(searchParams.page) || 1
+
+  console.log(await getProductBySlug('hp-laptop'))
+
   const total = await prisma.product.count()
   const totalPages = Math.ceil(total / pageSize)
   
