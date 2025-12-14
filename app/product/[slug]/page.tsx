@@ -1,4 +1,5 @@
 import { getProductBySlug } from '@/lib/actions'
+import { formatPrice } from '@/lib/utils'
 
 export async function ProductPage({
   params
@@ -18,6 +19,8 @@ export async function ProductPage({
       <h1 className='text-3xl font-medium mb-6'>
         {product.name}
       </h1>
+      <p>{product.description}</p>
+      <p>£{formatPrice(product.price)}</p>
     </div>
   )
 }
