@@ -1,5 +1,6 @@
 import { getProductBySlug } from '@/lib/actions'
 import { formatPrice } from '@/lib/utils'
+import { notFound } from 'next/navigation'
 
 export async function ProductPage({
   params
@@ -11,7 +12,7 @@ export async function ProductPage({
 
   if (!product) {
     return (
-      <p>Product Not Found.</p>
+      notFound()
     )
   }
 
