@@ -11,9 +11,7 @@ export default async function ProductPage({
   const product = await getProductBySlug(slug)
 
   if (!product) {
-    return (
-      notFound()
-    )
+    notFound()
   }
 
   return (
@@ -22,7 +20,7 @@ export default async function ProductPage({
         {product.name}
       </h1>
       <p>{product.description}</p>
-      <p>£{formatPrice(product.price)}</p>
+      <p>{formatPrice(product.price)}</p>
     </div>
   )
 }
