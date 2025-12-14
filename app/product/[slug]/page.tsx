@@ -2,7 +2,7 @@ import { getProductBySlug } from '@/lib/actions'
 import { formatPrice } from '@/lib/utils'
 import { notFound } from 'next/navigation'
 
-export async function ProductPage({
+export default async function ProductPage({
   params
 }: {
   params: Promise<{ slug: string }>
