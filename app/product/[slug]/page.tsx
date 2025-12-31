@@ -28,16 +28,16 @@ export default async function ProductPage({
             <span className='font-semibold text-lg text-main'>
               {formatPrice(product.price)}
             </span>
-            <Badge variant='outline'>{product.category?.name}</Badge>
+            <Badge variant='outline'>
+              {product.category?.name}
+            </Badge>
           </div>
-          <Separator />
+          <Separator className='my-4' />
+          <div className='my-4'>
+            <h2>Description</h2>
+          </div>
         </CardContent>
       </Card>
-      <h1 className='text-3xl font-medium mb-6'>
-        {product.name}
-      </h1>
-      <p>{product.description}</p>
-      <p>{formatPrice(product.price)}</p>
     </main>
   )
 }
