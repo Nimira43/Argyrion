@@ -1,5 +1,6 @@
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
 import { getProductBySlug } from '@/lib/actions'
 import { formatPrice } from '@/lib/utils'
 import { notFound } from 'next/navigation'
@@ -29,6 +30,7 @@ export default async function ProductPage({
             </span>
             <Badge variant='outline'>{product.category?.name}</Badge>
           </div>
+          <Separator />
         </CardContent>
       </Card>
       <h1 className='text-3xl font-medium mb-6'>
