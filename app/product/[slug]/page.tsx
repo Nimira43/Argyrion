@@ -1,3 +1,4 @@
+import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { getProductBySlug } from '@/lib/actions'
 import { formatPrice } from '@/lib/utils'
@@ -26,6 +27,7 @@ export default async function ProductPage({
             <span className='font-semibold text-lg text-main'>
               {formatPrice(product.price)}
             </span>
+            <Badge variant='outline'>{product.category?.name}</Badge>
           </div>
         </CardContent>
       </Card>
