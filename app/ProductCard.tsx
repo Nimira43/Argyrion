@@ -24,11 +24,17 @@ export function ProductCard({
           )}
         </div>
         <CardHeader>
-          <CardTitle>{product.name}</CardTitle>
-          <CardDescription>{product.description}</CardDescription>
+          <CardTitle>
+            {product.name}
+          </CardTitle>
+          <CardDescription>
+            {product.description}
+          </CardDescription>
         </CardHeader>
         <CardFooter>
-          <p>{formatPrice(product.price)}</p>
+          <p className='font-semibold text-main'>
+            {formatPrice(product.price)}
+          </p>
         </CardFooter>
       </Card>
     </Link>

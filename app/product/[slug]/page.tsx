@@ -34,7 +34,10 @@ export default async function ProductPage({
           </div>
           <Separator className='my-4' />
           <div className='my-4'>
-            <h2>Description</h2>
+            <h2 className='font-medium'>
+              Description
+            </h2>
+            <p>{product.description}</p>
           </div>
         </CardContent>
       </Card>
