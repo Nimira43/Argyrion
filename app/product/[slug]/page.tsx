@@ -37,7 +37,9 @@ export default async function ProductPage({
             <h2 className='font-medium'>
               Description
             </h2>
-            <p>{product.description}</p>
+            <p className='text-muted-foreground'>
+              {product.description}
+            </p>
           </div>
         </CardContent>
       </Card>
