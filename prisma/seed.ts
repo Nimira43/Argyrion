@@ -78,7 +78,8 @@ async function main() {
       price: 199.99,
       image: '/headphones.jpg',
       categoryId: headphones.id,
-      slug: 'sony-wireless-headphones'
+      slug: 'sony-wireless-headphones',
+      inventory: 153 
     },
     {
       id: '2',
@@ -88,7 +89,8 @@ async function main() {
       price: 149.99,
       image: '/smartwatch.jpg',
       categoryId: smartwatches.id,
-      slug: 'samsung-smartwatch'
+      slug: 'samsung-smartwatch',
+      inventory: 36
     },
     {
       id: '3',
@@ -98,7 +100,8 @@ async function main() {
       price: 449.99,
       image: '/playstation5.jpg',
       categoryId: consoles.id,
-      slug: 'playstation-5'
+      slug: 'playstation-5',
+      inventory: 0
     },
     {
       id: '4',
@@ -108,7 +111,8 @@ async function main() {
       price: 1049.99,
       image: '/iphone.jpg',
       categoryId: smartphones.id,
-      slug: 'iphone'
+      slug: 'iphone',
+      inventory: 126
     },
     {
       id: '5',
@@ -118,7 +122,8 @@ async function main() {
       price: 549.99,
       image: '/laptop.jpg',
       categoryId: laptops.id,
-      slug: 'hp-laptop'
+      slug: 'hp-laptop',
+      inventory: 94
     },
     {
       id: '6',
@@ -128,7 +133,8 @@ async function main() {
       price: 949.99,
       image: '/desktop.jpg',
       categoryId: desktops.id,
-      slug: 'dell-desktop'
+      slug: 'dell-desktop',
+      inventory: 294
     },
     {
       id: '7',
@@ -138,7 +144,8 @@ async function main() {
       price: 119.99,
       image: '/tablet.jpg',
       categoryId: tablets.id,
-      slug: 'amazon-tablet'
+      slug: 'amazon-tablet',
+      inventory: 83
     },
     {
       id: '8',
@@ -148,7 +155,8 @@ async function main() {
       price: 29.99,
       image: '/mouse.jpg',
       categoryId: accessories.id,
-      slug: 'microsoft-mouse'
+      slug: 'microsoft-mouse',
+      inventory: 428
     },
     {
       id: '9',
@@ -158,7 +166,8 @@ async function main() {
       price: 79.99,
       image: '/iot-lightbulbs.jpg',
       categoryId: iot.id,
-      slug: 'panasonic-smartbulbs'
+      slug: 'panasonic-smartbulbs',
+      inventory: 294
     },
   ]
 

@@ -12,10 +12,11 @@ model Product {
   name            String
   description     String?
   price           Float
-  image           String
+  image           String?
   slug            String    @unique
   category        Category  @relation(fields: [categoryId], references: [id])
   categoryId      String
+  inventory       Int       @default(0)
 }
 
 model Category {
