@@ -1,6 +1,8 @@
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import { BsCart3 } from 'react-icons/bs'
 import { getProductBySlug } from '@/lib/actions'
 import { formatPrice, sleep } from '@/lib/utils'
 import Image from 'next/image'
@@ -110,6 +112,19 @@ export default async function ProductPage({
                   </span>
                 )}
               </div>
+            </div>
+            <Separator className='my-4' />
+            <div className=''>
+              <Button
+                disabled={product.inventory === 0}
+                className='w-full'
+              >
+                <BsCart3 className='mr-1 w-4 h-4' />
+                {product.inventory > 0
+                  ? 'Add to Cart'
+                  : 'Out of Stock'
+                }
+              </Button>
             </div>
           </div>
         </CardContent>
