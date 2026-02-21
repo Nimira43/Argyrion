@@ -5,8 +5,6 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
- 
-    // Or if using `src` directory:
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
@@ -21,6 +19,11 @@ module.exports = {
 				'support': '#008080',
 				'light': '#fffcfa',
 				'dark': '#111',
+				'grey-1': '#333',
+				'grey-2': '#999',
+				'grey-3': '#ccc',
+				'grey-4': '#eee',
+				'grey-5': '#fafafa',
 				'grey-dark': '#333',
 				'grey-medium': '#999',
 				'grey-light': '#ccc',

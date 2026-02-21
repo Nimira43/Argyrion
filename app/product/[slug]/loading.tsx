@@ -8,7 +8,7 @@ export default async function Loading() {
       <Card className='max-w-3xl mx-auto'>
         <CardContent className='p-6 space-y-4'>
           <Skeleton className='h-10 w-3/4' />
-          <div className='centre-items gap-2 mb-4'>
+          <div className='flex items-center gap-2 mb-4'>
             <Skeleton className='h-6 w-24' />
             <Skeleton className='h-6 w-32' />
           </div>

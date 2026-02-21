@@ -1,9 +1,8 @@
-import type { Metadata } from 'next';
+import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
-import './globals.css';
-import Link from 'next/link';
-import { ThemeProvider } from '@/components/theme-provider';
-import { ModeToggle } from '@/components/mode-toggle';
+import './globals.css'
+import { ThemeProvider } from '@/components/theme-provider'
+import Navbar from '@/components/Navbar'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -30,26 +29,13 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <>
-            <ul>
-              <li>
-                <Link href='/'>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href='/products'>
-                  Products
-                </Link>
-              </li>
-              <li>
-                <ModeToggle />
-              </li>
-            </ul>  
+            <header>
+              <Navbar />  
+            </header>
             {children}
           </>
         </ThemeProvider>
-        
       </body>
     </html>
-  );
+  )
 }

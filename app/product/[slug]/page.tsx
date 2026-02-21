@@ -71,7 +71,7 @@ export default async function ProductPage({
             <h1 className='text-3xl font-medium mb-2'>
               {product.name}
             </h1>
-            <div className='centre-items gap-2 mb-4'>
+            <div className='flex items-center gap-2 mb-4'>
               <span className='font-semibold text-lg text-main'>
                 {formatPrice(product.price)}
               </span>
