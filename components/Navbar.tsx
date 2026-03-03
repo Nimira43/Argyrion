@@ -2,8 +2,9 @@ import Link from 'next/link'
 import { ModeToggle } from './mode-toggle'
 import { Button } from './ui/button'
 import { IoSearchSharp, IoBasketOutline } from 'react-icons/io5'
+import MobileNav from './mobile-nav'
 
-const categories = [
+export const categories = [
   { id: 1, name: 'Electronics', href: '/category/electronics' },
   { id: 2, name: 'Fashion', href: '/category/fashion' },
   { id: 3, name: 'Home', href: '/category/home' },
@@ -17,7 +18,7 @@ export default function Navbar() {
           <div className='flex items-center gap-6'>
             <Link
               href='/'
-              className='text-3xl logo-text'
+              className='text-3xl logo-text hidden md:block'
             >
               Argyrion
             </Link>
@@ -26,15 +27,16 @@ export default function Navbar() {
                 <Link
                   key={category.id}
                   href={category.href}
-                  className='text-sm font-medium text-foreground-muted hover:text-main hover-transition'
+                  className='text-sm font-medium hover:text-main hover-transition'
                 >
                   {category.name}
                 </Link>
               ))}
             </nav>
+            <MobileNav />
           </div>
         </div>
-        <div className='flex items-center gap-4'>
+        <div className='flex items-center gap-0'>
           <Button variant='ghost' size='icon' asChild>
             <Link href='/search'>
               <IoSearchSharp />
