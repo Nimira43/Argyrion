@@ -33,6 +33,11 @@ export default function RootLayout({
               <Navbar />  
             </header>
             {children}
+            <footer className='border-t py-6'>
+              <div className='container mx-auto text-sm text-muted-foreground text-center'>
+                &copy; {new Date().getFullYear()} Argyrion. All Rights Reserved.
+              </div>
+            </footer>
           </>
         </ThemeProvider>
       </body>

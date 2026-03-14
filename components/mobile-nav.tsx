@@ -52,7 +52,7 @@ export default function MobileNav() {
               >
                 <Link
                   href={category.href}
-                  className='block  py-2 hover:text-main hover-transition'
+                  className='block py-2 hover:text-main hover-transition'
                 >
                   {category.name}
                 </Link>  
