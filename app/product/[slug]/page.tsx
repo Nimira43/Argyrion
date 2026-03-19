@@ -7,6 +7,7 @@ import { getProductBySlug } from '@/lib/actions'
 import { formatPrice, sleep } from '@/lib/utils'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import { Breadcrumbs } from '@/components/breadcrumbs'
 
 export async function generateMetadata({
   params
@@ -49,11 +50,28 @@ export default async function ProductPage({
     notFound()
   }
 
-  await sleep(5000)
+  const breadcrumbs = [
+    { 
+      label: 'Products', 
+      href: '/'
+    },
+    { 
+      label: product.category?.name, 
+      href: `/category/${product.category?.slug}`
+    },
+    { 
+      label: product.name, 
+      href: `/category/${product.slug}`,
+      active: true
+    }
+  ]
+
+  await sleep(1000)
 
   return (
-    <main className='container mx-auto p-4'>
-      <Card className='max-w-3xl mx-auto'>
+    <main className='container mx-auto py-4'>
+      <Breadcrumbs items={breadcrumbs}/>
+      <Card>
         <CardContent className='p-6 grid grid-cols-1 md:grid-cols-2 gap-4'>
           <div className='relative rounded-sm overflow-hidden h-[200px] md:h-[400px]'>
             {product.image && (

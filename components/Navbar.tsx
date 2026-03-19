@@ -5,9 +5,9 @@ import { IoSearchSharp, IoBasketOutline } from 'react-icons/io5'
 import MobileNav from './mobile-nav'
 
 export const categories = [
-  { id: 1, name: 'Electronics', href: '/category/electronics' },
-  { id: 2, name: 'Fashion', href: '/category/fashion' },
-  { id: 3, name: 'Home', href: '/category/home' },
+  { id: 1, name: 'Computers', href: '/category/computers' },
+  { id: 2, name: 'Mobile', href: '/category/fashion' },
+  { id: 3, name: 'Accessories', href: '/category/accessories' },
 ]
 
 export default function Navbar() {
