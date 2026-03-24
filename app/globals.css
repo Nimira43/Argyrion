@@ -88,12 +88,13 @@
   font-weight: lighter;
 }
 
-.hover-transition {
+.hover-transition,
+.transitioning {
   transition: all 0.5s ease-in-out;
 }
 
-.centre {
-  @apply flex items-center justify-center;
+/* .centre {
+  @apply ;
 }
 
 .just-between {
@@ -106,4 +107,4 @@
 
 .centre-justify {
   @apply flex justify-center
-}
+} */

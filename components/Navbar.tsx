@@ -3,12 +3,13 @@ import { ModeToggle } from './mode-toggle'
 import { Button } from './ui/button'
 import { IoSearchSharp, IoBasketOutline } from 'react-icons/io5'
 import MobileNav from './mobile-nav'
+import SearchInput from './search-input'
 
 export const categories = [
   { id: 1, name: 'Computers', href: '/category/computers' },
   { id: 2, name: 'Mobile', href: '/category/fashion' },
   { id: 3, name: 'Accessories', href: '/category/accessories' },
-]
+]                
 
 export default function Navbar() {
   return (
@@ -36,12 +37,10 @@ export default function Navbar() {
             <MobileNav />
           </div>
         </div>
+        <div className='hidden md:block w-full mx-4 md:mx-8'>
+          <SearchInput />
+        </div>
         <div className='flex items-center gap-0'>
-          <Button variant='ghost' size='icon' asChild>
-            <Link href='/search'>
-              <IoSearchSharp />
-            </Link>
-          </Button>
           <Button variant='ghost' size='icon' asChild>
             <Link href='/cart'>
               <IoBasketOutline />

@@ -48,7 +48,7 @@ function Calendar({
         ),
         month: cn('flex w-full flex-col gap-4', defaultClassNames.month),
         nav: cn(
-          'absolute inset-x-0 top-0 just-between w-full gap-1',
+          'absolute inset-x-0 top-0 flex items-center justify-between w-full gap-1',
           defaultClassNames.nav
         ),
         button_previous: cn(
@@ -81,7 +81,7 @@ function Calendar({
           'select-none font-medium',
           captionLayout === 'label'
             ? 'text-sm'
-            : '[&>svg]:text-muted-foreground centre-items h-8 gap-1 rounded-md pl-2 pr-1 text-sm [&>svg]:size-3.5',
+            : '[&>svg]:text-muted-foreground flex items-center h-8 gap-1 rounded-md pl-2 pr-1 text-sm [&>svg]:size-3.5',
           defaultClassNames.caption_label
         ),
         table: 'w-full border-collapse',

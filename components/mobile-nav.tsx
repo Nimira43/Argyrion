@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Button } from './ui/button'
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet'
 import { IoMdMenu } from 'react-icons/io'
-import { categories } from './Navbar'
+import { categories } from './navbar'
 
 export default function MobileNav() {
   return (
