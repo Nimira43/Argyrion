@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ModeToggle } from './mode-toggle'
 import { Button } from './ui/button'
-import { IoSearchSharp, IoBasketOutline } from 'react-icons/io5'
+import { IoBasketOutline } from 'react-icons/io5'
 import MobileNav from './mobile-nav'
 import SearchInput from './search-input'
 
