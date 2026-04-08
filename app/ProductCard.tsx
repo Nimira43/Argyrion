@@ -11,7 +11,7 @@ export function ProductCard({
 }) {
   return (
     <Link href={`/product/${product.slug}`}>
-      <Card className='mt-6 pt-0 overflow-hidden'>
+      <Card className='pt-0 overflow-hidden min-h-[400px]'>
         <div className='relative aspect-video'>
           {product.image && (
             <Image

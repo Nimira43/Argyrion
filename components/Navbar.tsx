@@ -4,13 +4,8 @@ import { Button } from './ui/button'
 import { IoBasketOutline } from 'react-icons/io5'
 import MobileNav from './mobile-nav'
 import SearchInput from './search-input'
-
-export const categories = [
-  { id: 1, name: 'Computers', href: '/category/computers' },
-  { id: 2, name: 'Mobile', href: '/category/fashion' },
-  { id: 3, name: 'Accessories', href: '/category/accessories' },
-]                
-
+import CategoriesDropdown from './categories-dropdown'
+         
 export default function Navbar() {
   return (
     <div className='border-b'>
@@ -23,7 +18,11 @@ export default function Navbar() {
             >
               Argyrion
             </Link>
-            <nav className='hidden md:flex items-center gap-6'>
+            <nav className="hidden md:flex items-center gap-6">
+              <CategoriesDropdown />
+            </nav>
+
+            {/* <nav className='hidden md:flex items-center gap-6'>
               {categories.map((category) => (
                 <Link
                   key={category.id}
@@ -33,11 +32,12 @@ export default function Navbar() {
                   {category.name}
                 </Link>
               ))}
-            </nav>
+            </nav> */}
+
             <MobileNav />
           </div>
         </div>
-        <div className='hidden md:block w-full mx-4 md:mx-8'>
+        <div className='block w-full mx-4 md:mx-8'>
           <SearchInput />
         </div>
         <div className='flex items-center gap-0'>

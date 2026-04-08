@@ -57,11 +57,11 @@ export default async function ProductPage({
     },
     { 
       label: product.category?.name, 
-      href: `/category/${product.category?.slug}`
+      href: `/search/${product.category?.slug}`
     },
     { 
       label: product.name, 
-      href: `/category/${product.slug}`,
+      href: `/product/${product.slug}`,
       active: true
     }
   ]
