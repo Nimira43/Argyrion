@@ -3,6 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -88,23 +89,6 @@
   font-weight: lighter;
 }
 
-.hover-transition,
 .transitioning {
   transition: all 0.5s ease-in-out;
 }
-
-/* .centre {
-  @apply ;
-}
-
-.just-between {
-  @apply flex items-center justify-between;
-}
-
-.centre-items {
-  @apply flex items-center;
-}
-
-.centre-justify {
-  @apply flex justify-center
-} */

@@ -22,18 +22,6 @@ export default function Navbar() {
               <CategoriesDropdown />
             </nav>
 
-            {/* <nav className='hidden md:flex items-center gap-6'>
-              {categories.map((category) => (
-                <Link
-                  key={category.id}
-                  href={category.href}
-                  className='text-sm font-medium hover:text-main hover-transition'
-                >
-                  {category.name}
-                </Link>
-              ))}
-            </nav> */}
-
             <MobileNav />
           </div>
         </div>

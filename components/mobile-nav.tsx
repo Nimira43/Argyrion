@@ -30,7 +30,7 @@ export default function MobileNav() {
           <SheetClose asChild>
             <Link
               href='/'
-              className='hover:text-main hover-transition'
+              className='hover:text-main transitioning'
             >
               Home
             </Link>
@@ -38,7 +38,7 @@ export default function MobileNav() {
           <SheetClose asChild>
             <Link
               href='/products'
-              className='hover:text-main hover-transition'
+              className='hover:text-main transitioning'
             >
               Products
             </Link>
@@ -52,7 +52,7 @@ export default function MobileNav() {
               >
                 <Link
                   href={category.href}
-                  className='block py-2 hover:text-main hover-transition'
+                  className='block py-2 hover:text-main transitioning'
                 >
                   {category.name}
                 </Link>  

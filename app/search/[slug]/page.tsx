@@ -6,6 +6,7 @@ import { Suspense } from 'react'
 import ProductsSkeleton from '../../ProductsSkeleton'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { CategorySidebar } from '@/components/category-sidebar'
 
 type CategoryPageProps = {
   params: Promise<{ slug: string }>
@@ -106,12 +107,30 @@ export default async function CategoryPage({
           Price: High to Low
         </Link>
       </div>
-      <Suspense
-        key={`${slug}-${sort}`}
-        fallback={ <ProductsSkeleton /> }
-      >
-        <Products slug={slug} sort={sort} />
-      </Suspense>
+
+      <div className='flex gap-4'>
+        <Suspense
+          fallback={
+            <div className='w-[125px]'>
+              Loading
+            </div>
+          }
+        >
+          <CategorySidebar activeCategory={slug} />
+        </Suspense>
+        
+        <div className='flex-1'>
+          <Suspense
+            key={`${slug}-${sort}`}
+            fallback={
+              <ProductsSkeleton />
+            }
+          >
+            <Products slug={slug} sort={sort} />
+          </Suspense>
+        </div>
+      </div>
+      
     </main>
   )
 }
