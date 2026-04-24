@@ -5,8 +5,6 @@ import { prisma } from '@/lib/prisma'
 import { Suspense } from 'react'
 import ProductsSkeleton from '../../ProductsSkeleton'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import { CategorySidebar } from '@/components/category-sidebar'
 
 type CategoryPageProps = {
   params: Promise<{ slug: string }>
@@ -83,54 +81,21 @@ export default async function CategoryPage({
   }
 
   const breadcrumbs = [
-    {
-      label: 'Products',
-      href: '/'
-    },
-    {
-      label: category.name,
-      href: `/search/${category.slug}}`
-    }
+    { label: 'Products', href: '/' },
+    { label: category.name, href: `/search/${category.slug}}`}
   ]
 
   return (
-    <main className='container mx-auto py-4'>
-      <Breadcrumbs items={breadcrumbs} />
-      <div className='flex gap-3 text-sm mb-8'>
-        <Link href={`/search/${slug}`}>
-          Latest
-        </Link>
-        <Link href={`/search/${slug}?sort=price-asc`}>
-          Price: Low to High
-        </Link>
-        <Link href={`/search/${slug}?sort=price-desc`}>
-          Price: High to Low
-        </Link>
-      </div>
-
-      <div className='flex gap-4'>
-        <Suspense
-          fallback={
-            <div className='w-[125px]'>
-              Loading
-            </div>
-          }
-        >
-          <CategorySidebar activeCategory={slug} />
-        </Suspense>
-        
-        <div className='flex-1'>
-          <Suspense
-            key={`${slug}-${sort}`}
-            fallback={
-              <ProductsSkeleton />
-            }
-          >
-            <Products slug={slug} sort={sort} />
-          </Suspense>
-        </div>
-      </div>
-      
-    </main>
+    <>
+      <Breadcrumbs items={breadcrumbs} />  
+      <Suspense
+        key={`${slug}-${sort}`}
+        fallback={
+          <ProductsSkeleton />
+        }
+      >
+        <Products slug={slug} sort={sort} />
+      </Suspense>
+    </>
   )
 }

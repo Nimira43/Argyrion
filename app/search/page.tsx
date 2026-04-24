@@ -71,7 +71,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps ) {
   ]
 
   return (
-    <main className='container mx-auto py-4'>
+    <>
       <Breadcrumbs items={breadcrumbs} />
       <Suspense
         key={query}
@@ -79,6 +79,6 @@ export default async function SearchPage({ searchParams }: SearchPageProps ) {
       >
         <Products query={query} />
       </Suspense>
-    </main>
+    </>
   )
 }
