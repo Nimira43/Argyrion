@@ -6,10 +6,27 @@ import { Suspense } from 'react'
 import ProductsSkeleton from '../ProductsSkeleton'
 
 type SearchPageProps = {
-  searchParams: Promise<{query?: string}>
+  searchParams: Promise<{
+    query?: string
+    sort?: string
+  }> 
 }
 
-async function Products({ query }: { query: string }) {
+async function Products({
+  query,
+  sort
+}: {
+  query: string
+  sort?: string
+}) {
+  let orderBy: Record<string, 'asc' | 'desc'> | undefined = undefined 
+
+  if (sort === 'price-asc') {
+    orderBy = { price: 'asc' }
+  } else if (sort === 'price-desc') {
+    orderBy = { price: 'desc' }
+  } 
+
   const products = await prisma.product.findMany({
     where: {
       OR: [
@@ -27,6 +44,7 @@ async function Products({ query }: { query: string }) {
         }
       ]
     },
+    ...(orderBy ? { orderBy } : {}),
     take: 18
   })
 
@@ -58,6 +76,7 @@ async function Products({ query }: { query: string }) {
 export default async function SearchPage({ searchParams }: SearchPageProps ) {
   const params = await searchParams
   const query = params.query?.trim() ?? ''
+  const sort = params.sort
 
   const breadcrumbs = [
     {
@@ -74,10 +93,13 @@ export default async function SearchPage({ searchParams }: SearchPageProps ) {
     <>
       <Breadcrumbs items={breadcrumbs} />
       <Suspense
-        key={query}
+        key={`${query}-${sort}`}
         fallback={ <ProductsSkeleton /> }
       >
-        <Products query={query} />
+        <Products
+          query={query}
+          sort={sort}
+        />
       </Suspense>
     </>
   )
