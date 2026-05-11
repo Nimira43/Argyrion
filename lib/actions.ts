@@ -3,7 +3,7 @@
 import { Prisma } from '@prisma/client'
 import { prisma } from './prisma'
 
-interface GetProductsParams {
+export interface GetProductsParams {
   query?: string
   slug?: string
   sort?: string
