@@ -146,7 +146,7 @@ async function getOrCreateCart(): Promise<CartWithProducts> {
   return cart
 }
 
-export async function addCart(productId: string, quantity: number = 1) {
+export async function addToCart(productId: string, quantity: number = 1) {
   if (quantity < 1) {
     throw new Error('Quantity must be at least 1.')
   }

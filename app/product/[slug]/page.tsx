@@ -8,6 +8,7 @@ import { formatPrice, sleep } from '@/lib/utils'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { Breadcrumbs } from '@/components/breadcrumbs'
+import { AddToCartButton } from '@/components/add-to-cart-button'
 
 export async function generateMetadata({
   params
@@ -132,18 +133,7 @@ export default async function ProductPage({
               </div>
             </div>
             <Separator className='my-4' />
-            <div className=''>
-              <Button
-                disabled={product.inventory === 0}
-                className='w-full'
-              >
-                <BsCart3 className='mr-1 w-4 h-4' />
-                {product.inventory > 0
-                  ? 'Add to Cart'
-                  : 'Out of Stock'
-                }
-              </Button>
-            </div>
+            <AddToCartButton product={product} />
           </div>
         </CardContent>
       </Card>
