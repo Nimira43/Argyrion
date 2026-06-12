@@ -3,6 +3,7 @@
 import { Prisma } from '@prisma/client'
 import { prisma } from './prisma'
 import { cookies } from 'next/headers'
+import { revalidateTag, unstable_cache } from 'next/cache'
 
 export interface GetProductsParams {
   query?: string
@@ -88,17 +89,22 @@ async function findCartFromCookie(): Promise<CartWithProducts | null> {
     return null
   }
 
-  const cart = await prisma.cart.findUnique({
-    where: { id: cartId },
-    include: {
-      items: {
+  return unstable_cache(
+    async (id: string) => {
+      return await prisma.cart.findUnique({
+        where: { id },
         include: {
-          product: true
+          items: {
+            include: {
+              product: true
+            }
+          }
         }
-      }
-    }
-  })
-  return cart
+      })
+    },
+    [`cart-${cartId}`],
+    { tags: [`cart-${cartId}`]}
+  )(cartId);
 }
 
 export async function getCart(): Promise<ShoppingCart | null> {
@@ -172,4 +178,6 @@ export async function addToCart(productId: string, quantity: number = 1) {
       }
     })
   }
+
+  revalidateTag(`cart-${cart.id}`)
 }

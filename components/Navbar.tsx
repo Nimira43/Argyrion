@@ -5,6 +5,7 @@ import { IoBasketOutline } from 'react-icons/io5'
 import MobileNav from './mobile-nav'
 import SearchInput from './search-input'
 import CategoriesDropdown from './categories-dropdown'
+import { CartIndicator } from './cart-indicator'
          
 export default function Navbar() {
   return (
@@ -29,11 +30,7 @@ export default function Navbar() {
           <SearchInput />
         </div>
         <div className='flex items-center gap-0'>
-          <Button variant='ghost' size='icon' asChild>
-            <Link href='/cart'>
-              <IoBasketOutline />
-            </Link>
-          </Button>
+          <CartIndicator />
           <ModeToggle />
         </div>
       </div>
