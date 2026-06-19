@@ -15,7 +15,7 @@ export async function CartIndicator() {
       variant='ghost'
       size='icon'
       asChild
-      className='relative opacity-50'
+      className='relative'
     >
       <Link href='/cart'>
         <IoBasketOutline className='h-5 w-5' />

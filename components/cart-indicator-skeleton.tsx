@@ -9,7 +9,7 @@ export async function CartIndicatorSkeleton() {
       variant='ghost'
       size='icon'
       asChild
-      className='relative'
+      className='relative opacity-50'
       disabled
     >
       <Link href='/cart'>
