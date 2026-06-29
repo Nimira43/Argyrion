@@ -3,7 +3,7 @@
 import { Prisma } from '@prisma/client'
 import { prisma } from './prisma'
 import { cookies } from 'next/headers'
-import { revalidateTag, unstable_cache } from 'next/cache'
+import { revalidatePath, revalidateTag, unstable_cache } from 'next/cache'
 
 export interface GetProductsParams {
   query?: string
@@ -154,7 +154,6 @@ async function getOrCreateCart(): Promise<CartWithProducts> {
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax'
   })
-
   return cart
 }
 
@@ -184,6 +183,45 @@ export async function addToCart(productId: string, quantity: number = 1) {
       }
     })
   }
-
   revalidateTag(`cart-${cart.id}`)
+}
+
+export async function setProductQuantity(
+  productId: string,
+  quantity: number
+) {
+  if (quantity < 0) {
+    throw new Error('Quantity must be at least 0.')
+  }
+
+  const cart = await findCartFromCookie()
+
+  if (!cart) {
+    throw new Error('Cart not found.')
+  }
+
+  try {
+    if (quantity === 0) {
+      await prisma.cartItem.deleteMany({
+        where: {
+          cartId: cart.id,
+          productId,
+        }
+      })
+      revalidatePath(`cart-${cart.id}`)
+    } else {
+      await prisma.cartItem.updateMany({
+        where: {
+          cartId: cart.id,
+          productId,
+        },
+        data: {
+          quantity
+        }
+      })
+    }   
+  } catch (error) {
+    console.error('Error updating cart item quantity.', error)
+    throw new Error('Failed to update cart item quantity.')
+  }
 }
