@@ -1,8 +1,11 @@
-import { CartItemWithProduct } from '@/lib/actions'
+'use client'
+
+import { CartItemWithProduct, setProductQuantity } from '@/lib/actions'
 import { formatPrice } from '@/lib/utils'
 import Image from 'next/image'
 import { Button } from './ui/button'
 import { PiPlus, PiMinus } from 'react-icons/pi'
+import { useState } from 'react'
 
 interface CartEntryProps {
   cartItem: CartItemWithProduct
@@ -11,7 +14,32 @@ interface CartEntryProps {
 export default function CartEntry({
   cartItem
 }: CartEntryProps) {
+  const [isLoading, setIsLoading] = useState(false)
+  
+  const handleIncrement = async () => {
+    setIsLoading(true)   
+    try {
+      await setProductQuantity(cartItem.product.id, cartItem.quantity + 1)
+    } catch (error) {
+      console.error('Error incrementing cart item: ', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleDecrement = async () => {
+    setIsLoading(true)   
+    try {
+      await setProductQuantity(cartItem.product.id, cartItem.quantity - 1)
+    } catch (error) {
+      console.error('Error decrementing cart item: ', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
+
     <li className='border-b border-muted flex py-4 justify-between'>
       <div className='flex space-x-4'>
         <div className='overflow-hidden rounded border border-muted h-16 w-16'>
@@ -37,6 +65,8 @@ export default function CartEntry({
           <Button
             variant='ghost'
             className='rounded-l'
+            onClick={handleDecrement}
+            disabled={isLoading}
           >
             <PiMinus className='h-4 w-4' />
           </Button>
@@ -46,6 +76,8 @@ export default function CartEntry({
           <Button
             variant='ghost'
             className='rounded-r'
+            onClick={handleIncrement}
+            disabled={isLoading}
           >
             <PiPlus className='h-4 w-4' />
           </Button>

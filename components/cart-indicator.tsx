@@ -2,13 +2,10 @@ import Link from 'next/link'
 import { Button } from './ui/button'
 import { IoBasketOutline } from 'react-icons/io5'
 import { getCart } from '@/lib/actions'
-import { sleep } from '@/lib/utils'
 
 export async function CartIndicator() {
   const cart = await getCart()
   const cartSize = cart?.size ?? 0
-
-  await sleep(3000)
 
   return (
     <Button
