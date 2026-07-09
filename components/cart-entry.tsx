@@ -5,6 +5,7 @@ import { formatPrice } from '@/lib/utils'
 import Image from 'next/image'
 import { Button } from './ui/button'
 import { PiPlus, PiMinus } from 'react-icons/pi'
+import { LiaTimesSolid } from 'react-icons/lia'
 import { useState } from 'react'
 
 interface CartEntryProps {
@@ -16,32 +17,31 @@ export default function CartEntry({
 }: CartEntryProps) {
   const [isLoading, setIsLoading] = useState(false)
   
-  const handleIncrement = async () => {
+  const handleSetProductQuantity = async (quantity: number) => {
     setIsLoading(true)   
     try {
-      await setProductQuantity(cartItem.product.id, cartItem.quantity + 1)
+      await setProductQuantity(cartItem.product.id, quantity)
     } catch (error) {
-      console.error('Error incrementing cart item: ', error)
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  const handleDecrement = async () => {
-    setIsLoading(true)   
-    try {
-      await setProductQuantity(cartItem.product.id, cartItem.quantity - 1)
-    } catch (error) {
-      console.error('Error decrementing cart item: ', error)
+      console.error('Error changing quantity of an item.', error)
     } finally {
       setIsLoading(false)
     }
   }
 
   return (
-
     <li className='border-b border-muted flex py-4 justify-between'>
       <div className='flex space-x-4'>
+        <div className='absolute z-10 -ml-1 -mt-2'>
+          <Button
+            variant='ghost'
+            size='icon'
+            disabled={isLoading}
+            className='w-7 h-7 rounded-full '
+            onClick={() => handleSetProductQuantity(0)}                   
+          >
+            <LiaTimesSolid className='w-4 h-4' />
+          </Button>
+        </div>
         <div className='overflow-hidden rounded border border-muted h-16 w-16'>
           <Image
             className='h-full w-full object-cover'
@@ -65,7 +65,7 @@ export default function CartEntry({
           <Button
             variant='ghost'
             className='rounded-l'
-            onClick={handleDecrement}
+            onClick={() => handleSetProductQuantity(cartItem.quantity - 1)}
             disabled={isLoading}
           >
             <PiMinus className='h-4 w-4' />
@@ -76,7 +76,7 @@ export default function CartEntry({
           <Button
             variant='ghost'
             className='rounded-r'
-            onClick={handleIncrement}
+            onClick={() => handleSetProductQuantity(cartItem.quantity + 1)}
             disabled={isLoading}
           >
             <PiPlus className='h-4 w-4' />
