@@ -1,4 +1,5 @@
 import CartEntry from '@/components/cart-entry'
+import CartSummary from '@/components/cart-summary'
 import { getCart } from '@/lib/actions'
 
 export default async function CartPage() {
@@ -16,14 +17,17 @@ export default async function CartPage() {
           </p>
         </div>
       ) : ( 
-        <div className='flex flex-col'>
-          {cart.items.map((item) => (
-            <CartEntry
+        <>
+          <div className='flex flex-col'>
+            {cart.items.map((item) => (
+              <CartEntry
               key={item.id}
-              cartItem={item}
-            />
-          ))}  
-        </div>  
+                cartItem={item}
+              />
+            ))}  
+          </div>
+          <CartSummary />  
+        </>
       )}
     </main>
   )

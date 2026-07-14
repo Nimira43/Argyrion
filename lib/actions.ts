@@ -105,9 +105,7 @@ async function findCartFromCookie(): Promise<CartWithProducts | null> {
               product: true
             },
             orderBy: {
-              product: {
-                name: 'asc'
-              }
+              createdAt: 'desc'
             }
           }
         }
